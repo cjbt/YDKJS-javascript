@@ -1,5 +1,5 @@
 # YDKJS-javascript
-Notes as I read through You @getify's book 'You Don't Know Js'
+Notes as I read through @getify's book 'You Don't Know Js'
 link: https://github.com/getify/You-Dont-Know-JS
 
 A book series on JavaScript. @YDKJS on twitter.
