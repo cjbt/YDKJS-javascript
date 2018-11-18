@@ -67,5 +67,5 @@ newFunc; // 2
 //
 //
 //
-//code mechanisms of javascript like
+// core mechanisms of javascript are like:
 // values, types, function closure, this, and prototypes
