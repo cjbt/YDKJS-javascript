@@ -183,4 +183,53 @@ with (obj){
 //
 // performance-wise, wont' matter if you don't use it lol. It takes less effort
 
+// block scope:
+//
+// A code inside a funciton is hidden from the global scope. You can also hide already made code by wrapping a function around it.. why? 'Principle of Least Privelage" or least authority or least exposure
+// In the diesing of the software, such as the API for a module/object, you should expose only what's minimally necessary and "hide" everything else.
+//
+function doSomething(a) {
+	function doSomethingElse(a) {
+		return a - 1;
+	}
+	let b;
+	b = a + doSomethingElse( a * 2 );
 
+	console.log(b*3);
+}
+doSomething(2); // 15
+
+// above example is a cleaner design and hides private details inside the scope of doSomething() so that b and doSomethingElse 'are not accessible to any outside influence'
+//
+// Collision Avoidance
+// -> to avoid unintended collision between two different identifiers with the same name but different intended usages.
+//
+( function(arr){
+	//do something
+	return arr;
+})();
+
+// foo is bound in the enclosing scope, and we call it directly with foo. 
+// second snipper, foo is not bound in the enclosing scope, but instead is bound only inside of its own function.
+//
+// "'(function foo(){..})(); as an expression means the identifier 'foo' is found only in the scope where the .. indicates, not in the outer scope. Hiding the name 'foo' inside itself means it does not pollute the enclosing scope unnecessarily
+// 
+// anonymous vs named functions
+// best practice is to always name your function expressions.
+setTimeout( function timeoutHandler(){ // <-- Look, I have a name!
+	console.log("I waited 1 second" );
+}, 1000 );
+// is this also aplicable in higher order functions like map?
+//
+//
+// IFEI: Invoking Function Expressions Immediately
+// ( function(){ .. } )();
+// first (  ) makes the function into an expression, instead of a decleration and the second () executes the function.
+// usually used on anonymous functions
+((()=>`this seems cool`))(); // this seems cool
+// naming an IIFE has all the aforementioned benefit over anonymous functions so it's good practice to name. But it's not that cool. as above.
+//
+// declerations made with let will not hoist
+//
+// let attaches to the block scope it was declared so it's good.
+//
