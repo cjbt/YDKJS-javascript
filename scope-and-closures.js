@@ -233,3 +233,40 @@ setTimeout( function timeoutHandler(){ // <-- Look, I have a name!
 //
 // let attaches to the block scope it was declared so it's good.
 //
+//
+// hoisting: 
+// let doesn't hoist, functions hoists before variables.
+// Do not use same naming for functions and variables. It will not end well
+//
+// closures:
+// it's been here. You just gotta see it
+function foo() {
+	var a=2;
+
+	function bar() {
+		console.log(a); // 2
+	}
+
+	bar();
+}
+
+foo();
+// familiar code, bar is referencing a which is a RHS reference look up
+// is this closure?
+// "technically... perhaps." "... not exactly"
+//
+// purely academic perspective, function bar() has a closure over the scope of foo() is scope from the perpective from the inner to the outer?
+//
+function foo() {
+	var a=2;
+	function bar() {
+		console.log(a);
+	}
+	return bar;
+}
+var baz = foo();
+baz(); // 2 -- woah, closure was just observed, man.
+
+//
+//You mean to see I've been using closures all this time?
+//
